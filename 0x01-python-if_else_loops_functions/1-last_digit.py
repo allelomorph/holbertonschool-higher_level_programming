@@ -6,7 +6,7 @@ if number < 0:  # Python returns different modulo than C for negative ints
     abs = number * -1
     digit = (abs % 10) * -1
 else:
-    digit = number %10
+    digit = number % 10
 
 print("Last digit of {:d} is {:d}".format(number, digit), end=" ")
 if digit > 5:
