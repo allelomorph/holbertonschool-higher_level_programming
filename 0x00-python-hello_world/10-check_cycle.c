@@ -16,9 +16,6 @@ int check_cycle(listint_t *list)
 {
 	listint_t *base, *test;
 
-	if (!list)
-		return (-1);
-
 	base = list;
 	test = list;
 
