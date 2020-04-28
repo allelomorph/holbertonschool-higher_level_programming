@@ -15,7 +15,6 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *base, *test;
-/*	int i = 0, j = 0; */
 
 	if (!list)
 		return (-1);
@@ -23,25 +22,12 @@ int check_cycle(listint_t *list)
 	base = list;
 	test = list;
 
-/*	printf("base before loop: %p\n", (void *)base); */
-/*	printf("test before loop: %p\n", (void *)test); */
-
-	while (base->next)
+	while (base && test && test->next)
 	{
-/*		printf("base: %p loop: %i\n", (void *)base, i); */
-		while (test->next)
-		{
-/*			printf("___test: %p loop: %i\n", (void *)test->next, j); */
-			if (test->next == base)
-				return (1);
-			test = test->next;
-/*			j++; */
-		}
-/*		j = 0; */
 		base = base->next;
-		test = base;
-/*		i++; */
+		test = test->next->next;
+		if (base == test)
+			return (1);
 	}
-
 	return (0);
 }
