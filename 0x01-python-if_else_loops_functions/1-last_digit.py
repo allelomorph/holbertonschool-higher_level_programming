@@ -1,8 +1,13 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
-last_d = str(number)[-1]  # workaround for different modulo behavior in Python
-digit = int(last_d)
+
+if number < 0:  # Python returns different modulo than C for negative ints
+    abs = number * -1
+else:
+    abs = number
+
+digit = abs % 10
 print("Last digit of {:d} is {:d}".format(number, digit), end=" ")
 if digit > 5:
     print("and is greater than 5")
