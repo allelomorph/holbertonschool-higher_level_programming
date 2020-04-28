@@ -4,10 +4,10 @@ number = random.randint(-10000, 10000)
 
 if number < 0:  # Python returns different modulo than C for negative ints
     abs = number * -1
+    digit = (abs % 10) * -1
 else:
-    abs = number
+    digit = number %10
 
-digit = abs % 10
 print("Last digit of {:d} is {:d}".format(number, digit), end=" ")
 if digit > 5:
     print("and is greater than 5")
