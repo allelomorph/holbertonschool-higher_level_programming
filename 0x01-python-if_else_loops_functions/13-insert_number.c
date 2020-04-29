@@ -1,6 +1,5 @@
 #include "lists.h"
 #include <stdlib.h>
-/*#include <stdio.h> */
 
 /**
  * insert_node - prints all elements of a listint_t list
@@ -25,14 +24,12 @@ listint_t *insert_node(listint_t **head, int number)
 	}
 
 	curr = *head;
-/*	printf("before loop: curr:%p curr->n:%i\n", (void *)curr, curr->n); */
+
 	while (curr->next && curr->next->n < number)
 	{
-/*		printf(": curr:%p curr->n:%i\n", (void *)curr, curr->n); */
 		curr = curr->next;
 	}
 
-/*	printf("after loop: curr:%p curr->n:%i\n", (void *)curr, curr->n); */
 	if (curr->n < number)
 	{
 		new->next = curr->next;
