@@ -6,9 +6,9 @@ if __name__ == "__main__":
     print(ac, end=" ")
 
     if ac == 1:
-        print("argument", end = "")
+        print("argument", end="")
     else:
-        print("arguments", end = "")
+        print("arguments", end="")
 
     if ac == 0:
         print(".")
