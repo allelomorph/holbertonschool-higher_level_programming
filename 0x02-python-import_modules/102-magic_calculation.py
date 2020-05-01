@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 def magic_calculation(a, b):
-    from magic_calculation_102 import add, sub # 3
-    if a < b:                                  # 4
-        c = add(a, b)                          # 5
-        for i in range(4, 6):                  # 6
-            c = add(c, i)                      # 7
-        return c                               # 8
-    else:
-        return sub(a, b)                       #10
+    from magic_calculation_102 import add, sub  # 3
+    if a < b:                                   # 4
+        c = add(a, b)                           # 5
+        for i in range(4, 6):                   # 6
+            c = add(c, i)                       # 7
+        return c                                # 8
+
+    return sub(a, b)                            # 10
 
 # line 3
 # consti 1 const = 0 TOS
@@ -114,7 +114,7 @@ def magic_calculation(a, b):
 # 8     >>   90 LOAD_FAST                4 (c)
 #            93 RETURN_VALUE
 #
-#10     >>   94 LOAD_FAST                3 (sub)
+# 10     >>   94 LOAD_FAST                3 (sub)
 #            97 LOAD_FAST                0 (a)
 #           100 LOAD_FAST                1 (b)
 #           103 CALL_FUNCTION            2 (2 positional, 0 keyword pair)
