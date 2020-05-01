@@ -6,8 +6,8 @@ def magic_calculation(a, b):
         for i in range(4, 6):                  # 6
             c = add(c, i)                      # 7
         return c                               # 8
-
-    return sub(a, b)                           #10
+    else:
+        return sub(a, b)                       #10
 
 # line 3
 # consti 1 const = 0 TOS
