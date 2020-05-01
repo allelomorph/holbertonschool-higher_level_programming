@@ -9,8 +9,10 @@ def magic_calculation(a, b, c):
 # line 3
 # var a, var_num 0 TOS
 # var b, var_num 1 TOS
-# TOS = TOS < TOS1??? TOS = b < a
-# If (b < a) false goto BC_16, TOS popped
+# dis.cmp_op: __lt__(self, value, /)
+#             Return self<value.
+#        TOS = TOS1 < TOS, TOS = a < b
+# If (a < b) false goto BC_16, TOS popped
 #
 # line 4
 # var c, var_num 2 TOS
@@ -19,8 +21,10 @@ def magic_calculation(a, b, c):
 # line 5
 # (BC_16) var c, var_num 2 TOS
 # var b, var_num 1 TOS
-# TOS = TOS > TOS1??? TOS = b > c
-# If (b > c) false goto BC_36, TOS popped
+# dis.cmp_op: __gt__(self, value, /)
+#             Return self>value.
+#        TOS = TOS1 > TOS, TOS = c < b
+# If (c > b) false goto BC_36, TOS popped
 #
 # line 6
 # var a, var_num 0 TOS
