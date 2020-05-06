@@ -6,12 +6,3 @@ def multiple_returns(sentence):
     else:
         first_c = None
     return (length, first_c)
-
-"""    retvals = [len(sentence)]
-    if retvals[0] == 0:
-        retvals += 
-        else:
-            retvals += sentence[0]
-    return tuple(retvals)
-  #  return retvals
-"""
