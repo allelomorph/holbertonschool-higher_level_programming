@@ -8,6 +8,9 @@ def print_matrix_integer(matrix=[[]]):
                     print(" ", end="")
                 else:
                     print()
+    else:
+        return None
+
 """ end="")
                 if num < (len(matrix[]) - 1):
                       print(" ")
