@@ -6,6 +6,4 @@ def safe_print_division(a, b):
         quot = None
     finally:
         print("Inside result: {}".format(quot))
-        if quot is not None:
-            quot = int(quot)
         return quot
