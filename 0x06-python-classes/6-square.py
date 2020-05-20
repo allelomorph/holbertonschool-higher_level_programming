@@ -84,7 +84,6 @@ class Square:
                 raise TypeError('position must be a tuple of',
                                 '2 positive integers')
         self.__position = value
-        print("{} is __position after setting.".format(__position))
 
     def area(self):
         """Calulates area of square.
@@ -110,13 +109,16 @@ class Square:
             vertical offset in newlines
 
         """
-        for v_offset in range(0, self.__position[1]):
+        if self.__size <= 0:
             print()
+        else:
+            for v_offset in range(0, self.__position[1]):
+                print()
         for row in range(0, self.__size):
             for h_offset in range(0, self.__position[0]):
                 print(" ", end="")
             for col in range(0, self.__size):
                 print("#", end="")
             print()
-        if self.__size is 0:
-            print()
+
+#        print("size: {} position: {}".format(self.__size, self.__position))
