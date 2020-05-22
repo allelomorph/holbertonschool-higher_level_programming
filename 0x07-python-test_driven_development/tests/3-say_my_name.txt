@@ -1,6 +1,6 @@
 The ``3-say_my_name`` module
 ==================================
-This module contains only one function: say_my_name. Error in project formatting scheme advances file numbering +1 for every task after 0. This is actually task 2.
+This module contains only one function: say_my_name. Error in project formatting scheme advances file numbering +1 for every task after 0: this is actually task 2.
 
 Using ``say_my_name``
 ------------------------
@@ -34,7 +34,7 @@ empty first name (no space before newline):
 
 Exceptions
 ~~~~~~~~~~
-If first name string argument is not a string, a TypeError of "first_name must be a string" will arise. Similarly, "last_name must be a string" for the last name argument. Argument count of 0 or more than 2 will also raise ...
+If first name string argument is not a string, a TypeError of "first_name must be a string" will arise. Similarly, "last_name must be a string" for the last name argument.
 
 first name is not a string:
     >>> say_my_name(2001, "Bowman")
