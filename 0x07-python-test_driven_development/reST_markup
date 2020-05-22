@@ -1,0 +1,277 @@
+Sources:
+simple guide: https://en.wikipedia.org/wiki/ReStructuredText
+more in-depth: https://docutils.sourceforge.io/docs/user/rst/quickref.html
+
+================
+ Document Title
+================
+----------
+ Subtitle
+----------
+
+Chapter 1 Title
+===============
+
+Section 1.1 Title
+-----------------
+
+Subsection 1.1.1 Title
+~~~~~~~~~~~~~~~~~~~~~~
+
+Text formatting
+---------------
+*emphasis* (usually italics)
+**strong emphasis** (usually boldface)
+``inline literal``
+
+Backslash Escape - rST
+~~~~~~~~~~~~~~~~~~~~~~
+*escape* ``with`` "\"
+
+shows as: (italic)escape (code)with (normal)""
+
+\*escape* \``with`` "\\"
+
+shows as: *escape* ``with`` "\"
+
+Backslash Escape - Pyhton docstrings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+r"""\*escape* \`with` "\\""""
+
+shows as: *escape* \`with` "\"
+
+"""\\*escape* \\`with` "\\\\""""
+
+shows as: *escape* `with` "\"
+
+"""\*escape* \`with` "\\""""
+
+shows as: escape with ""
+
+
+Lists
+-----
+- A bullet list item
+- Second item
+
+  - A sub item
+
+- Spacing between items separates list items
+
+* Different bullet symbols create separate lists
+
+- Third item
+
+1) An enumerated list item
+
+2) Second item
+
+   a) Sub item that goes on at length and thus needs
+      to be wrapped. Note the indentation that must
+      match the beginning of the text, not the 
+      enumerator.
+
+      i) List items can even include
+
+         paragraph breaks.
+
+3) Third item
+
+#) Another enumerated list item
+
+#) Second item
+
+Definition lists
+~~~~~~~~~~~~~~~~
+
+what
+  Definition lists associate a term with
+  a definition.
+
+how
+  The term is a one-line phrase, and the
+  definition is one or more paragraphs or
+  body elements, indented relative to the
+  term. Blank lines are not allowed
+  between term and definition.
+
+Field Lists
+~~~~~~~~~~~
+
+:Authors:
+    Tony J. (Tibs) Ibbs,
+    David Goodger
+
+    (and sundry other good-natured folks)
+
+:Version: 1.0 of 2001/08/08
+:Dedication: To my father.
+
+Option Lists
+~~~~~~~~~~~~
+
+-a            command-line option "a"
+-b file       options can have arguments
+              and long descriptions
+--long        options can be long also
+--input=file  long options can also have
+              arguments
+/V            DOS/VMS-style options too
+
+
+Blocks
+------
+
+Literal Blocks
+~~~~~~~~~~~~~~
+
+A paragraph containing only two colons
+indicates that the following indented
+or quoted text is a literal block.
+
+::
+
+  Whitespace, newlines, blank lines, and
+  all kinds of markup (like *this* or
+  \this) is preserved by literal blocks.
+
+  The paragraph containing only '::'
+  will be omitted from the result.
+
+The ``::`` may be tacked onto the very
+end of any paragraph. The ``::`` will be
+omitted if it is preceded by whitespace.
+The ``::`` will be converted to a single
+colon if preceded by text, like this::
+
+  It's very convenient to use this form.
+
+Literal blocks end when text returns to
+the preceding paragraph's indentation.
+This means that something like this
+is possible::
+
+      We start here
+    and continue here
+  and end here.
+
+Per-line quoting can also be used on
+unindented literal blocks::
+
+> Useful for quotes from email and
+> for Haskell literate programming.
+
+.. code:: python
+
+   print("A literal block directive explicitly marked as python code")
+
+
+Line Blocks
+~~~~~~~~~~~
+
+| Line blocks are useful for addresses,
+| verse, and adornment-free lists.
+|
+| Each new line begins with a
+| vertical bar ("|").
+|     Line breaks and initial indents
+|     are preserved.
+| Continuation lines are wrapped
+  portions of long lines; they begin
+  with spaces in place of vertical bars.
+
+Block Quotes
+~~~~~~~~~~~~
+
+Block quotes are just:
+
+    Indented paragraphs,
+
+        and they may nest.
+
+Doctest Blocks
+~~~~~~~~~~~~~~
+
+Doctest blocks are interactive
+Python sessions. They begin with
+"``>>>``" and end with a blank line.
+
+>>> print "This is a doctest block."
+This is a doctest block.
+
+Tables
+------
+
+Grid table
+~~~~~~~~~~
+
++------------+------------+-----------+
+| Header 1   | Header 2   | Header 3  |
++============+============+===========+
+| body row 1 | column 2   | column 3  |
++------------+------------+-----------+
+| body row 2 | Cells may span columns.|
++------------+------------+-----------+
+| body row 3 | Cells may  | - Cells   |
++------------+ span rows. | - contain |
+| body row 4 |            | - blocks. |
++------------+------------+-----------+
+
+Simple table
+~~~~~~~~~~~~
+
+=====  =====  ======
+   Inputs     Output
+------------  ------
+  A      B    A or B
+=====  =====  ======
+False  False  False
+True   False  True
+False  True   True
+True   True   True
+=====  =====  ======
+
+Images
+------
+
+.. image:: /path/to/image.jpg
+
+.. image:: /path/to/image.jpg
+   :height: 100
+   :width: 200
+   :scale: 50
+   :alt: alternate text
+
+
+Links
+-----
+
+Substitution References and Definitions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The |biohazard| symbol must be used on containers used to dispose of medical waste.
+
+.. |biohazard| image:: https://docutils.sourceforge.io/docs/user/rst/images/biohazard.png
+
+Named Links
+~~~~~~~~~~~
+
+A sentence with links to `Wikipedia`_ and the `Linux kernel archive`_.
+
+.. _Wikipedia: https://www.wikipedia.org/
+.. _Linux kernel archive: https://www.kernel.org/
+
+Anonymous links
+~~~~~~~~~~~~~~~
+
+Another sentence with an `anonymous link to the Python website`__.
+
+__ https://www.python.org/
+
+Internal Hyperlink Targets
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(titles are targets, too)
+
+Implict references, like `Links`_.

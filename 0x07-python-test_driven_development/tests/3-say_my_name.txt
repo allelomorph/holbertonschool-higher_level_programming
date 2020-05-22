@@ -1,0 +1,55 @@
+The ``3-say_my_name`` module
+==================================
+This module contains only one function: say_my_name. Error in project formatting scheme advances file numbering +1 for every task after 0. This is actually task 2.
+
+Using ``say_my_name``
+------------------------
+
+First import
+~~~~~~~~~~~~
+First import ``say_my_name`` from the ``3-say_my_name.py`` module. Since the file name contains a numeral, you can't use the simple ``from 3-say_my_name.py import say_my_name``. You can instead use the following syntax:
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Normal use
+~~~~~~~~~~
+This function takes two strings meant to represent your given name and family name, and prints the full name:
+
+    >>> say_my_name("Dave", "Bowman")
+    My name is Dave Bowman
+
+The function will accept empty strings or just one argument. Since the last name defaults to an empty string, a single argument will be treated as a first name, including a space character:
+
+empty last name (space before newline):
+    >>> say_my_name("Frank", "")
+    My name is Frank 
+
+only one name (space before newline):
+    >>> say_my_name("Frank")
+    My name is Frank 
+
+empty first name (no space before newline):
+    >>> say_my_name("", "Poole")
+    My name is Poole
+
+Exceptions
+~~~~~~~~~~
+If first name string argument is not a string, a TypeError of "first_name must be a string" will arise. Similarly, "last_name must be a string" for the last name argument. Argument count of 0 or more than 2 will also raise ...
+
+first name is not a string:
+    >>> say_my_name(2001, "Bowman")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+only name (treated as first) is not a string:
+    >>> say_my_name(2001)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+last name is not a string:
+    >>> say_my_name("Dave", 2010)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
