@@ -13,8 +13,8 @@ class Square:
 
 
     Attributes:
-        __size (int): length of one side of square
-        __position (tuple) ((int), (int)): horizontal offset in spaces,
+        size (int): length of one side of square
+        position (tuple) ((int), (int)): horizontal offset in spaces,
         vertical offset in newlines
 
 
