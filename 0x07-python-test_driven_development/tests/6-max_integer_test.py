@@ -22,10 +22,6 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer((3, 5)), 5)
         # and strings, with each character evaluted by ASCII value
         self.assertEqual(max_integer('actg'), 't')
-        # empty iterables produce no output
-        self.assertEqual(max_integer([]), None)
-        self.assertEqual(max_integer(()), None)
-        self.assertEqual(max_integer(''), None)
 
     def test_list_length(self):
         """The argument 'list' can be an iterable datatype (aside from sets)
