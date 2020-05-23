@@ -27,6 +27,21 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer(()), None)
         self.assertEqual(max_integer(''), None)
 
+    def test_list_length(self):
+        """The argument 'list' can be an iterable datatype (aside from sets)
+        of any length, including 1 or 0 members, except for tuples, which need
+        at least 2 members to be evaluated as that type.
+        """
+        # empty iterables produce no output
+        self.assertEqual(max_integer([]), None)
+        self.assertEqual(max_integer(()), None)
+        self.assertEqual(max_integer(''), None)
+        # length of 1 element simply returns that element for lists and strings
+        self.assertEqual(max_integer([5]), 5)
+        self.assertEqual(max_integer('a'), 'a')
+        # but a single member tuple is just evaulated as that member
+        self.assertRaises(TypeError, max_integer, (5))
+
     def test_first_list_dimension_type(self):
         """ASCII chars are implicity converted to int by '>' comparison.
         Strings need to be with their own type, but ints, floats, and bools
@@ -66,21 +81,6 @@ class TestMaxInteger(unittest.TestCase):
                          [[8, 2], [2], []])
         # list or tuple member sets always return index 0, so are not useful
         self.assertEqual(max_integer([{5, 4}, {6, 3, 1}, {20}]), {4, 5})
-
-    def test_list_length(self):
-        """The argument 'list' can be an iterable datatype (aside from sets)
-        of any length, including 1 or 0 members, except for tuples, which need
-        at least 2 members to be evaluated as that type.
-        """
-        # empty iterables produce no output
-        self.assertEqual(max_integer([]), None)
-        self.assertEqual(max_integer(()), None)
-        self.assertEqual(max_integer(''), None)
-        # length of 1 element simply returns that element for lists and strings
-        self.assertEqual(max_integer([5]), 5)
-        self.assertEqual(max_integer('a'), 'a')
-        # but a single member tuple is just evaulated as that member
-        self.assertRaises(TypeError, max_integer, (5))
 
 if __name__ == '__main__':
     unittest.main()
