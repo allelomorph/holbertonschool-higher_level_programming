@@ -27,23 +27,23 @@ class Rectangle:
         return self.__width
 
     @width.setter
-    def width(self, width):
+    def width(self, value):
         """Args:
-            width (int): horizontal dimension of rectangle
+            value (int): horizontal dimension of rectangle
 
         Attributes:
             __width (int): horizontal dimension of rectangle
 
         Raises:
-            TypeError: If `width` is not an int.
-            ValueError: If `width` is less than 0.
+            TypeError: If `value` is not an int.
+            ValueError: If `value` is less than 0.
 
         """
-        if type(width) is not int:
+        if type(value) is not int:
             raise TypeError('width must be an integer')
-        elif width < 0:
+        elif value < 0:
             raise ValueError('width must be >= 0')
-        self.__width = width
+        self.__width = value
 
     @property
     def height(self):
@@ -56,23 +56,23 @@ class Rectangle:
         return self.__height
 
     @height.setter
-    def height(self, height):
+    def height(self, value):
         """Args:
-            height (int): vertical dimension of rectangle
+            value (int): vertical dimension of rectangle
 
         Attributes:
             __height (int): vertical dimension of rectangle
 
         Raises:
-            TypeError: If `height` is not an int.
-            ValueError: If `height` is less than 0.
+            TypeError: If `value` is not an int.
+            ValueError: If `value` is less than 0.
 
         """
-        if type(height) is not int:
+        if type(value) is not int:
             raise TypeError('height must be an integer')
-        if height < 0:
+        if value < 0:
             raise ValueError('height must be >= 0')
-        self.__height = height
+        self.__height = value
 
     def area(self):
         """Returns area of a rectangle of a given `width` and `height`.
