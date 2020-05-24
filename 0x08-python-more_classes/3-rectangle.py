@@ -131,5 +131,9 @@ class Rectangle:
     def __str__(self):
         """Allows direct printing of instances.
 
+        Returns:
+            The output of _draw_rectangle, which creates a string
+        representation of the rectangle suitable for printing.
+
         """
         return self._draw_rectangle()
