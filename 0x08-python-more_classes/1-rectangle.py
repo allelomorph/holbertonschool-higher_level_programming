@@ -4,7 +4,13 @@
 
 
 class Rectangle:
-    """Empty class per task instructions, will be built upon in later tasks.
+    """At this stage the class only creates private instance attributes by
+    taking in two arguments.
+
+    Args:
+        width (int): horizontal dimension of rectangle, defaults to 0
+        height (int): vertical dimension of rectangle, defaults to 0
+
     """
     def __init__(self, width=0, height=0):
         self.width = width
@@ -12,10 +18,24 @@ class Rectangle:
 
     @property
     def width(self):
+        """Creates a private instance attribute from an incoming argument.
+
+    Args:
+        width (int): horizontal dimension of rectangle, defaults to 0
+
+    Attributes:
+        __width (int): horizontal dimension of rectangle
+
+        """
         return self.__width
 
     @width.setter
     def width(self, width):
+        """Raises:
+        TypeError: If `width` is not an int.
+        ValueError: If `width` is less than 0.
+
+        """
         if type(width) is not int:
             raise TypeError('width must be an integer')
         elif width < 0:
@@ -24,10 +44,24 @@ class Rectangle:
 
     @property
     def height(self):
+        """Creates a private instance attribute from an incoming argument.
+
+    Args:
+        height (int): vertical dimension of rectangle, defaults to 0
+
+    Attributes:
+        __height (int): vertical dimension of rectangle
+
+        """
         return self.__height
 
     @height.setter
     def height(self, height):
+        """Raises:
+        TypeError: If `height` is not an int.
+        ValueError: If `height` is less than 0.
+
+        """
         if type(height) is not int:
             raise TypeError('height must be an integer')
         if height < 0:
