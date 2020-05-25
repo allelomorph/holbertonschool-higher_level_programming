@@ -127,21 +127,33 @@ def coordinate_format(candidates):
                     holberton[x][i].append(j)
     return holberton
 
-
+# init candidates list with first column of 0s
 candidates = []
 candidates.append(board_column_gen())
 
+# proceed column by column, testing the rightmost
 for col in range(N):
+    # start a new generation of the candidate list for every round of testing
     new_candidates = []
+    # test each candidate from previous round, at current column
     for matrix in candidates:
+        # for every row in that candidate's rightmost column
         for row in range(N):
+            # are there any conflicts in placing a queen at those coordinates?
             if new_queen_safe(matrix, row, col):
+                # no? then create a "child" (copy) of that candidate
                 temp = [line[:] for line in matrix]
+                # place a queen in that position
                 add_queen(temp, row, col)
+                # and unless you're in the last round of testing,
                 if col < N - 1:
+                    # add a new column of 0s on the right for the next round
                     board_column_gen(temp)
+                # add that new candidate to this round's list of successes
                 new_candidates.append(temp)
+    # when finished with the round, discard the "parent" candidates
     candidates = new_candidates
 
+# format results to match assignment output
 for item in coordinate_format(candidates):
     print(item)
