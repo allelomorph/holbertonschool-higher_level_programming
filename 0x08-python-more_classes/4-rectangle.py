@@ -142,7 +142,7 @@ class Rectangle:
         """Allows use of eval().
 
         Returns:
-            A string representation of the instance.
+            A string of the code needed to create the instance.
 
         """
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
