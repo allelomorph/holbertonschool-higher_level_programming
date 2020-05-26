@@ -35,7 +35,18 @@ If the last word does not end with one of those three symbols or have its own ne
 
     >>> text_indentation("")
 
-    >>> text_indentation(". ? : ")
+    >>> text_indentation(". ? : -")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    -
+
+Printing a double newline after the three delimeter characters is independent of how the string is otherwise delimited by spaces:
+
+    >>> text_indentation(".?:")
     .
     <BLANKLINE>
     ?
@@ -43,9 +54,20 @@ If the last word does not end with one of those three symbols or have its own ne
     :
     <BLANKLINE>
 
-    >>> text_indentation(".?:")
-    .?:
+    >>> text_indentation("Stop.No, come back?")
+    Stop.
     <BLANKLINE>
+    No, come back?
+    <BLANKLINE>
+
+    >>> text_indentation("Clearly. When? But do you know about:    that")
+    Clearly.
+    <BLANKLINE>
+    When?
+    <BLANKLINE>
+    But do you know about:
+    <BLANKLINE>
+    that
 
 Exceptions
 ~~~~~~~~~~
