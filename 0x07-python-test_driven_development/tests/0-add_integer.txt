@@ -59,6 +59,26 @@ If a and b are any type other than int or float, the function will raise a TypeE
         ...
     TypeError: a must be an integer
 
+Of course, there are some limits to the floats that can be handled:
+
+    >>> pos_inf = float('inf')  # positive infinity
+    >>> add_integer(pos_inf, 4.0)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+    >>> neg_inf = float('-inf')  # negative infinity
+    >>> add_integer(neg_inf, 4.0)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+    >>> not_a_num = float('nan')   # NaN ("not a number", )
+    >>> add_integer(not_a_num, 4.0)
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
+
 Additionally, there should be one or two arguments provided, otherwise an exception will occur:
 
     >>> add_integer()
