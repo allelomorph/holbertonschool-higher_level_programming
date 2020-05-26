@@ -44,6 +44,11 @@ Size must be an int, or the TypeError 'size must be an integer' will be raised.
         ...
     TypeError: size must be an integer
 
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
 Even if size is an int, it still must be 0 or greater. If not, it raises a ValueError of 'size must be >= 0':
 
     >>> print_square(-1)
