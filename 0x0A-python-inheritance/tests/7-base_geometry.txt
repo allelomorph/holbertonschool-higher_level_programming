@@ -24,7 +24,14 @@ Unintended use
 ~~~~~~~~~~~~~~
 No exceptions arise for an empty name string, although there is no practical reason to submit one:
 
+    >>> bg.integer_validator("", 6)
+
+As it would make the custom exception raised less useful:
+
     >>> bg.integer_validator("", "John")
+    Traceback (most recent call last):
+        ...
+    TypeError:  must be an integer
 
 Exceptions
 ~~~~~~~~~~
