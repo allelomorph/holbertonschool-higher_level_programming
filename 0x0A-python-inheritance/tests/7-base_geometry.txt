@@ -58,6 +58,31 @@ Exceptions
         ...
     TypeError: name must be an integer
 
+    >>> bg.integer_validator("age", (25,))
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", [25])
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("name", True)
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+
     - If that integer is less than 1, a ValueError is raised:
 
     >>> bg.integer_validator("age", 0)
