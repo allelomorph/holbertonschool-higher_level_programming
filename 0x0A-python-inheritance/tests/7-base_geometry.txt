@@ -1,0 +1,89 @@
+The ``7-base_geometry`` module
+============================
+This module contains a custom class of BaseGeometry, which has 2 methods: area(), and ``integer_validator``.
+
+Using ``BaseGeometry``
+---------------------
+
+First import
+~~~~~~~~~~~~
+First import ``BaseGeometry`` from the ``7-base_geometry`` module. Since the file name contains a numeral, you can't use the simple ``from 7-base_geometry import BaseGeometry``. You can instead use the following syntax:
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Normal use
+~~~~~~~~~~
+``integer_validator()`` can be used to do input filtration on objects to select only for integers greater than 0. It takes a string as the variable name, and an object to test for type and value.
+
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("my_int", 12)
+
+No exception or output means the object has passed the tests.
+
+Unintended use
+~~~~~~~~~~~~~~
+No exceptions arise for an empty name string, although there is no practical reason to submit one:
+
+    >>> bg.integer_validator("", "John")
+    Traceback (most recent call last):
+        ...
+    TypeError:  must be an integer
+
+Exceptions
+~~~~~~~~~~
+``area()`` is an as yet unimplemented method, and only contains a custom exception:
+
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+
+    - Even when implemented, ``area()`` expects no arguments:
+
+    >>> bg.area(4)
+    Traceback (most recent call last):
+        ...
+    TypeError: area() takes 1 positional argument but 2 were given
+
+``integer_validator()`` raises two custom exeptions during filtration, and several other standard ones if misused.
+
+    - If the object is not an integer, a TypeError is raised:
+
+    >>> bg.integer_validator("name", "John")
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+    - If that integer is less than 1, a ValueError is raised:
+
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: age must be greater than 0
+
+    >>> bg.integer_validator("distance", -4)
+    Traceback (most recent call last):
+        ...
+    ValueError: distance must be greater than 0
+
+    - ``integer_validator()`` expects 2 arguments:
+
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+    >>> bg.integer_validator("distance")
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+    >>> bg.integer_validator(4)
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+    >>> bg.integer_validator("distance", 4, 5)
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
