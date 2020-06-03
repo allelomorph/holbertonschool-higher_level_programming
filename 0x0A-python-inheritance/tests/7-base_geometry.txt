@@ -26,7 +26,12 @@ No exceptions arise for an empty name string, although there is no practical rea
 
     >>> bg.integer_validator("", 6)
 
-As it would make the custom exception raised for bad values less useful, by omitting the name of the variable.
+as it would make the custom exception raised for bad values less useful:
+
+    >>> bg.integer_validator("", "John")
+    Traceback (most recent call last):
+        ...
+    TypeError:  must be an integer
 
 Exceptions
 ~~~~~~~~~~
