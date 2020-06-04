@@ -49,3 +49,4 @@ except KeyboardInterrupt:
         if code_counts[code] > 0:
             print("{}: {}".format(code, code_counts[code]))
     log.close()
+    raise
