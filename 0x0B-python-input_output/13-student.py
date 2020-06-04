@@ -47,11 +47,13 @@ class Student:
             return self.__dict__
 
     def reload_from_json(self, json):
-        """Replaces all attributes of self with items from dict in json file.
+        """Updates all attributes of self with values from dict in json file.
+        "Replaces" in task instructions does not mean that items in __dict__
+        but not in json dict will be deleted.
 
         Args:
             json (dict): dictionary of items to set as attributes
 
         """
-        self.__dict__.clear()
-        self.__dict__ = json
+        for key in json:
+            self.__dict__.update({key: json[key]})
