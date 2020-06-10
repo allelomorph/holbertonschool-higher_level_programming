@@ -520,7 +520,7 @@ class TestSquare(unittest.TestCase):
         l_out = Square.load_from_file()
         self.assertEqual(l_out, [])
         # empty list in file
-        Rectangle.save_to_file([])
+        Square.save_to_file([])
         l_out = Square.load_from_file()
         self.assertEqual(l_out, [])
         # file has other content - JSON decoder error
@@ -531,7 +531,7 @@ class TestSquare(unittest.TestCase):
             file.write(content)
         self.assertRaises(ValueError, Square.load_from_file)
         # PermissionError: file inaccessible
-        Rectangle.save_to_file(l_in)
+        Square.save_to_file(l_in)
         os.chmod('Square.json', 0o000)
         self.assertRaises(PermissionError, Square.load_from_file)
         # FileNotFoundError: file not in path
