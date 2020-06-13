@@ -14,10 +14,14 @@ class TestBase(unittest.TestCase):
 
         """
         b_obj = Base._Base__nb_objects
+        b_tobj = Base._Base__true_nb_objects
         b_ids = Base._Base__assigned_ids
         if b_obj > 1:
             print('testBase: previous Base counter not reset,' +
                   'now at: {}'.format(b_obj))
+        if b_tobj > 1:
+            print('testBase: previous total Base counter not reset,' +
+                  'now at: {}'.format(b_tobj))
         if len(b_ids) > 0:
             print('testBase: previous Base ids still potentially in' +
                   'use: {}'.format(b_ids))
@@ -29,11 +33,16 @@ class TestBase(unittest.TestCase):
         b_ids = Base._Base__assigned_ids
         Base._Base__nb_objects = 0
         b_obj = Base._Base__nb_objects
+        Base._Base__true_nb_objects = 0
+        b_tobj = Base._Base__true_nb_objects
         b_ids.clear()
         if b_obj > 1:
             print('testBase: Base counter not reset, now at: {}'.format(b_obj))
+        if b_tobj > 1:
+            print('testBase: total Base counter not reset,' +
+                  ' now at: {}'.format(b_tobj))
         if len(b_ids) > 0:
-            print('testBase: previous Base ids still potentially in' +
+            print('testBase: Base ids still potentially in' +
                   'use: {}'.format(b_ids))
 
     def test_id(self):
@@ -47,24 +56,24 @@ class TestBase(unittest.TestCase):
         # ValueError: assigning negative ids
         self.assertRaises(ValueError, Base, -5)
         # Normal use: Assigning postive id
-        b1 = Base(3)
-        self.assertEqual(b1.id, 3)
+        b1 = Base(2)
+        self.assertEqual(b1.id, 2)
         self.assertEqual(b1.serial, 1)
-        # No argument defaults to assigning current count of instances
+        # No arg defaults to id = count of instances w/o manually assigned id
         b2 = Base()
-        self.assertEqual(b2.id, 2)
+        self.assertEqual(b2.id, 1)
         self.assertEqual(b2.serial, 2)
         # Further instance w/o arg continues pattern, even if id already used
         b3 = Base()
-        self.assertEqual(b3.id, 3)
+        self.assertEqual(b3.id, 2)
         self.assertEqual(b3.serial, 3)
         # Manually assigning id that has already automatically been assigned
-        b4 = Base(3)
-        self.assertEqual(b1.id, 3)
+        b4 = Base(2)
+        self.assertEqual(b1.id, 2)
         self.assertEqual(b1.serial, 1)
-        self.assertEqual(b3.id, 3)
+        self.assertEqual(b3.id, 2)
         self.assertEqual(b3.serial, 3)
-        self.assertEqual(b4.id, 3)
+        self.assertEqual(b4.id, 2)
         self.assertEqual(b4.serial, 4)
 
     def test_to_json_string(self):

@@ -22,30 +22,55 @@ class TestRectangle(unittest.TestCase):
         already cleaned up.
 
         """
-        r_obj = Base._Base__nb_objects
-        r_ids = Base._Base__assigned_ids
-        if r_obj > 1:
-            print('caution: counter not reset, now at: {}'.format(r_obj))
-        if len(r_ids) > 0:
-            print('caution: ids potentially still in use: {}'.format(r_ids))
+        b_obj = Base._Base__nb_objects
+        b_tobj = Base._Base__true_nb_objects
+        b_ids = Base._Base__assigned_ids
+        if b_obj > 1:
+            print('testRectangle: previous Base counter not reset, ' +
+                  'now at: {}'.format(b_obj))
+        if b_tobj > 1:
+            print('testRectangle: previous total Base counter not reset, ' +
+                  'now at: {}'.format(b_tobj))
+        if len(b_ids) > 0:
+            print('testRectangle: previous Base ids still potentially in ' +
+                  'use: {}'.format(b_ids))
 
     def tearDown(self):
-        """Deletes test files. Reinitializes `Base` obejct iterator and set
+        """Deletes test files. Reinitializes `Base` object iterator and set
         of assigned ids.
 
         """
         if os.path.exists('Rectangle.json'):
             os.remove('Rectangle.json')
         Rectangle._Base__nb_objects = 0
+        Rectangle._Base__true_nb_objects = 0
         Rectangle._Base__assigned_ids.clear()
-        Base._Base__nb_objects = 0
-        Base._Base__assigned_ids.clear()
-        r_obj = Base._Base__nb_objects
-        r_ids = Base._Base__assigned_ids
+        r_obj = Rectangle._Base__nb_objects
+        r_tobj = Rectangle._Base__true_nb_objects
+        r_ids = Rectangle._Base__assigned_ids
         if r_obj > 1:
-            print('caution: counter not reset, now at: {}'.format(r_obj))
+            print('testRectangle: Rectangle counter not reset, ' +
+                  'now at: {}'.format(r_obj))
+        if r_tobj > 1:
+            print('testRectangle: total Rectangle counter not reset, ' +
+                  'now at: {}'.format(r_tobj))
         if len(r_ids) > 0:
-            print('caution: ids potentially still in use: {}'.format(r_ids))
+            print('testRectangle: Rectangle ids potentially still in ' +
+                  'use: {}'.format(r_ids))
+        Base._Base__nb_objects = 0
+        Base._Base__true_nb_objects = 0
+        Base._Base__assigned_ids.clear()
+        b_obj = Base._Base__nb_objects
+        b_tobj = Base._Base__true_nb_objects
+        b_ids = Base._Base__assigned_ids
+        if b_obj > 1:
+            print('testBase: Base counter not reset, now at: {}'.format(b_obj))
+        if b_tobj > 1:
+            print('testBase: total Base counter not reset, ' +
+                  'now at: {}'.format(b_obj))
+        if len(b_ids) > 0:
+            print('testBase: Base ids potentially still in ' +
+                  'use: {}'.format(b_ids))
 
     def test_arg_count(self):
         """Task 2. First Rectangle"""
@@ -349,7 +374,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r29.y, 11)
         # keyword arg `id` already assigned to another instance
         r30 = Rectangle(2, 3)
-        self.assertEqual(r30.id, 3)
+        self.assertEqual(r30.id, 2)
         self.assertEqual(r30.y, 0)
         r30.update(y=1, id=89)
         self.assertEqual(r30.id, 89)
@@ -511,15 +536,20 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(l_in[0].y, l_out[0].y)
         self.assertFalse(l_in[0] is l_out[0])
         self.assertNotEqual(l_in[0].serial, l_out[0].serial)
-        # empty file
+        # empty file returns empty list
         Rectangle.save_to_file(None)
         l_out = Rectangle.load_from_file()
         self.assertEqual(l_out, [])
-        # empty list in file
+        # empty list in file returns empty list
         Rectangle.save_to_file([])
         l_out = Rectangle.load_from_file()
         self.assertEqual(l_out, [])
-        # file has other content - JSON decoder error
+        # file not found returns empty list
+        if os.path.exists('Rectangle.json'):
+            os.remove('Rectangle.json')
+        l_out = Rectangle.load_from_file()
+        self.assertEqual(l_out, [])
+        # ValueError: file has other content - JSON decoder error
         content = """It is your responsibility to request a review for this
         task from a peer before the projects deadline. If no peers have been
         reviewed, you should request a review from a TA or staff member."""
@@ -530,10 +560,6 @@ class TestRectangle(unittest.TestCase):
         Rectangle.save_to_file(l_in)
         os.chmod('Rectangle.json', 0o000)
         self.assertRaises(PermissionError, Rectangle.load_from_file)
-        # FileNotFoundError: file not in path
-        if os.path.exists('Rectangle.json'):
-            os.remove('Rectangle.json')
-        self.assertRaises(FileNotFoundError, Rectangle.load_from_file)
         # KeyError: dict has bad key
         # TypeError: dict has too many keys
         # TypeError: dict has no keys

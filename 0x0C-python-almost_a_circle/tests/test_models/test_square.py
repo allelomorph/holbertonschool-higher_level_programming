@@ -23,14 +23,18 @@ class TestSquare(unittest.TestCase):
         already cleaned up.
 
         """
-        s_obj = Base._Base__nb_objects
-        s_ids = Base._Base__assigned_ids
-        if s_obj > 1:
-            print('TestSquare: caution: Base counter not reset,' +
-                  ' now at: {}'.format(s_obj))
-        if len(s_ids) > 0:
-            print('TestSquare: caution: Base ids still in use:' +
-                  ' {}'.format(s_ids))
+        b_obj = Base._Base__nb_objects
+        b_tobj = Base._Base__true_nb_objects
+        b_ids = Base._Base__assigned_ids
+        if b_obj > 1:
+            print('testSquare: previous Base counter not reset, ' +
+                  'now at: {}'.format(b_obj))
+        if b_tobj > 1:
+            print('testSquare: previous total Base counter not reset, ' +
+                  'now at: {}'.format(b_tobj))
+        if len(b_ids) > 0:
+            print('testSquare: previous Base ids still potentially in ' +
+                  'use: {}'.format(b_ids))
 
     def tearDown(self):
         """Reinitializes `Square` space `Base` obejct iterator and set of
@@ -40,16 +44,34 @@ class TestSquare(unittest.TestCase):
         if os.path.exists('Square.json'):
             os.remove('Square.json')
         Square._Base__nb_objects = 0
+        Square._Base__true_nb_objects = 0
         Square._Base__assigned_ids.clear()
+        r_obj = Square._Base__nb_objects
+        r_tobj = Square._Base__true_nb_objects
+        r_ids = Square._Base__assigned_ids
+        if r_obj > 1:
+            print('testSquare: Square counter not reset, ' +
+                  'now at: {}'.format(r_obj))
+        if r_tobj > 1:
+            print('testSquare: total Square counter not reset, ' +
+                  'now at: {}'.format(r_tobj))
+        if len(r_ids) > 0:
+            print('testSquare: Square ids potentially still in ' +
+                  'use: {}'.format(r_ids))
         Base._Base__nb_objects = 0
+        Base._Base__true_nb_objects = 0
         Base._Base__assigned_ids.clear()
-        s_obj = Base._Base__nb_objects
-        s_ids = Base._Base__assigned_ids
-        if s_obj > 1:
-            print('TestSquare: caution: counter not reset,' +
-                  ' now at: {}'.format(s_obj))
-        if len(s_ids) > 0:
-            print('TestSquare: caution: ids still in use: {}'.format(s_ids))
+        b_obj = Base._Base__nb_objects
+        b_tobj = Base._Base__true_nb_objects
+        b_ids = Base._Base__assigned_ids
+        if b_obj > 1:
+            print('testBase: Base counter not reset, now at: {}'.format(b_obj))
+        if b_tobj > 1:
+            print('testBase: total Base counter not reset, ' +
+                  'now at: {}'.format(b_obj))
+        if len(b_ids) > 0:
+            print('testBase: Base ids potentially still in ' +
+                  'use: {}'.format(b_ids))
 
     def test_arg_count(self):
         """Task 10. And now, the Square!"""
@@ -356,7 +378,7 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(s26.y, 11)
         # ValueError: keyword arg `id` already assigned to another instance
         s27 = Square(2, 3)
-        self.assertEqual(s27.id, 3)
+        self.assertEqual(s27.id, 1)
         self.assertEqual(s27.serial, 3)
         s27.update(y=1, id=89)
         self.assertEqual(s27.id, 89)
@@ -515,15 +537,20 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(l_in[0].y, l_out[0].y)
         self.assertFalse(l_in[0] is l_out[0])
         self.assertNotEqual(l_in[0].serial, l_out[0].serial)
-        # empty file
+        # empty file returns empty list
         Square.save_to_file(None)
         l_out = Square.load_from_file()
         self.assertEqual(l_out, [])
-        # empty list in file
+        # empty list in file returns empty list
         Square.save_to_file([])
         l_out = Square.load_from_file()
         self.assertEqual(l_out, [])
-        # file has other content - JSON decoder error
+        # file not found returns empty list
+        if os.path.exists('Square.json'):
+            os.remove('Square.json')
+        l_out = Square.load_from_file()
+        self.assertEqual(l_out, [])
+        # ValueError: file has other content - JSON decoder error
         content = """It is your responsibility to request a review for this
         task from a peer before the projects deadline. If no peers have been
         reviewed, you should request a review from a TA or staff member."""
@@ -534,10 +561,6 @@ class TestSquare(unittest.TestCase):
         Square.save_to_file(l_in)
         os.chmod('Square.json', 0o000)
         self.assertRaises(PermissionError, Square.load_from_file)
-        # FileNotFoundError: file not in path
-        if os.path.exists('Square.json'):
-            os.remove('Square.json')
-        self.assertRaises(FileNotFoundError, Square.load_from_file)
         # KeyError: dict has bad key
         # TypeError: dict has too many keys
         # TypeError: dict has no keys
