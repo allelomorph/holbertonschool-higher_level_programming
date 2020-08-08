@@ -6,8 +6,8 @@ if __name__ == '__main__':
     import MySQLdb
 
     if len(sys.argv) != 4:
-        print ('Use: 0-select_states.py <mysql username> <mysql password>'
-               ' <database name>')
+        print('Use: 0-select_states.py <mysql username> <mysql password>'
+              ' <database name>')
         sys.exit()
 
     conn = MySQLdb.connect(host='localhost', port=3306, user=sys.argv[1],
