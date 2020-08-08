@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""0x0F. Python - Object-relational mapping - task 1. Filter states"""
 
 if __name__ == '__main__':
     import sys
