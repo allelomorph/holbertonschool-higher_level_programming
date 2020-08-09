@@ -19,8 +19,7 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
 
     session = Session(engine)
-    try:
-        state = session.query(State).filter(State.name == argv[4]).first()
+    state = session.query(State).filter(State.name == argv[4]).first()
     if state is not None:
         print(state.id)
     else:
