@@ -19,13 +19,20 @@ if __name__ == '__main__':
     session = Session(engine)
     Base.metadata.create_all(engine)  # creates decprecated warning 1681
 
-    result = session.query(City, State).filter(City.state_id == State.id)
-    result = result.order_by(City.id).all()
-    for city, state in result:
-        print('{}: ({}) {}'.format(state.name, city.id, city.name))
+    result = session.query(State.name, City.id, City.name).filter(
+        City.state_id == State.id).order_by(City.id).all()
+    for row in result:
+        print('{}: ({}) {}'.format(row[0], row[1], row[2]))
+
     session.close()
     """
     equivalent to:
     SELECT states.name, cities.id, cities.name FROM cities
     JOIN states ON cities.state_id = states.id ORDER BY cities.id ASC;
+
+    alternate method:
+    result = session.query(City, State).filter(
+        City.state_id == State.id).order_by(City.id).all()
+    for city, state in result:
+        print('{}: ({}) {}'.format(state.name, city.id, city.name))
     """
