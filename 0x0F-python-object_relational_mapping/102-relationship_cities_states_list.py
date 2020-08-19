@@ -10,7 +10,7 @@ if __name__ == '__main__':
     from relationship_city import City
 
     if len(argv) != 4:
-        exit('Use: 101-relationship_states_cities_list.py <mysql username> '
+        exit('Use: 102-relationship_cities_states_list.py <mysql username> '
              '<mysql password> <database name>')
 
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/'
