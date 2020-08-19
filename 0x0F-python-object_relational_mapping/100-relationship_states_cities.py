@@ -20,7 +20,7 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)  # creates decprecated warning 1681
 
     new_state = State(name='California')
-    new_city = City(name='San Francisco', state_id=1)
+    new_city = City(name='San Francisco', state_id=new_state.id)
     session.add_all([new_state, new_city])
     session.commit()
     session.close()
