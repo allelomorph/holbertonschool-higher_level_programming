@@ -11,3 +11,4 @@ if __name__ == "__main__":
     \t- type: {}
     \t- content: {}
     \t- utf8 content: {}""".format(type(html), html, html.decode('utf-8')))
+    # charset can be gained with response.headers.get_content_charset()
