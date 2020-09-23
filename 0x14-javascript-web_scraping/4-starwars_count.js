@@ -6,11 +6,12 @@ request(process.argv[2], function (error, response, body) {
   if (error) {
     console.error(error);
   }
-  const films = JSON.parse(body);
-  const wedgeURL = 'https://swapi-api.hbtn.io/api/people/18/';
+  const films = JSON.parse(body).results;
+  const wedgeId = 18;
   let count = 0;
-  for (let i = 0; i < films.results.length; i++) {
-    if (films.results[i].characters.includes(wedgeURL)) {
+  for (const film of films) {
+    if (film.characters.includes(
+      `https://swapi-api.hbtn.io/api/people/${wedgeId}/`)) {
       count += 1;
     }
   }
