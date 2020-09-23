@@ -10,9 +10,11 @@ request(process.argv[2], function (error, response, body) {
   const wedgeId = 18;
   let count = 0;
   for (const film of films) {
-    if (film.characters.includes(
-      `https://swapi-api.hbtn.io/api/people/${wedgeId}/`)) {
-      count += 1;
+    for (const url of film.characters) {
+      if (url.includes(
+        `/api/people/${wedgeId}/`)) {
+        count += 1;
+      }
     }
   }
   console.log(count);
