@@ -47,8 +47,7 @@ if __name__ == '__main__':
             # both ip addresses/URLs allowed, but some lines may be raw text
             a = line.split('-', 1)
             if len(a) != 2:
-                #stderr.write("{}: {}: invalid log line format\n".format(
-                #    argv[0], line_no))
+                # likely not a formatted line
                 continue
 
             # checking timestamp
@@ -57,43 +56,35 @@ if __name__ == '__main__':
             try:
                 datetime.strptime(timecode, '%Y-%m-%d %H:%M:%S.%f')
             except:
-                #stderr.write("{}: {}: invalid timecode\n".format(
-                #    argv[0], line_no))
+                stderr.write("{}: {}: invalid timecode\n".format(
+                    argv[0], line_no))
                 pass
 
             # checking URL
             c = b[1].split('"')
             c = c[1:]
-            #if c[0] != 'GET /projects/260 HTTP/1.1':
-                #stderr.write("{}: {}: unexpected HTTP request\n".format(
-                #    argv[0], line_no))
+            if c[0] != 'GET /projects/260 HTTP/1.1':
+                stderr.write("{}: {}: unexpected HTTP request\n".format(
+                    argv[0], line_no))
 
             # prep for status code and file size
             d = c[1].lstrip(' ')
             d = d.rstrip('\n')
             d = d.split(' ')
 
-            # checking status code
-            if not d[0].isdecimal():
-                #stderr.write("{}: {}: invalid status code\n".format(
-                #    argv[0], line_no))
-                pass
-            else:
+            # checking status code (invalid codes skipped without error)
+            if d[0].isdecimal():
                 code = int(d[0])
                 code_counts[code] += 1
 
-            # checking file size
-            if not d[1].isdecimal():
-                #stderr.write("{}: {}: invalid file size\n".format(
-                #    argv[0], line_no))
-                pass
-            else:
+            # checking file size (invalid sizes skipped without error)
+            if d[1].isdecimal():
                 total_file_size += int(d[1])
 
             if line_no % 10 == 0:
                 print_log_totals(total_file_size, code_counts)
         print_log_totals(total_file_size, code_counts)
 
-    except (KeyboardInterrupt, SystemExit):
+    except (KeyboardInterrupt):
         print_log_totals(total_file_size, code_counts)
         raise
