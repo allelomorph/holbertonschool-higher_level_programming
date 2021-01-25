@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-0x06. Log Parsing, task 0. Log parsing
+0x0B. Python - Input/Output, task 16. Log parsing
 
 Parses a log of HTTP GET request results from stdin to tabulate the total
 counts of status codes appearing in each response, and the total file size
@@ -33,6 +33,7 @@ def print_log_totals(total_file_size, code_counts):
 if __name__ == '__main__':
     from sys import argv, stdin, stderr
     from collections import OrderedDict
+    from datetime import datetime
 
     line_no = 0
     total_file_size = 0
@@ -42,51 +43,54 @@ if __name__ == '__main__':
     try:
         for line in stdin:
             line_no += 1
-            a = line.split('-', 1)
+
             # both ip addresses/URLs allowed, but some lines may be raw text
+            a = line.split('-', 1)
             if len(a) != 2:
-                # stderr.write("{}: {}: invalid log line format\n".format(
-                #    argv[0], line_no))
+                stderr.write("{}: {}: invalid log line format\n".format(
+                    argv[0], line_no))
                 continue
+
             # checking timestamp
             b = a[1].split(']')
             timecode = b[0].lstrip(' [')
-            import datetime
             try:
-                datetime.datetime.strptime(timecode, '%Y-%m-%d %H:%M:%S.%f')
+                datetime.strptime(timecode, '%Y-%m-%d %H:%M:%S.%f')
             except:
-                #stderr.write("{}: {}: invalid timecode\n".format(
-                #    argv[0], line_no))
-                continue
+                stderr.write("{}: {}: invalid timecode\n".format(
+                    argv[0], line_no))
+
             # checking URL
             c = b[1].split('"')
             c = c[1:]
             if c[0] != 'GET /projects/260 HTTP/1.1':
-                #stderr.write("{}: {}: unexpected HTTP request\n".format(
-                #    argv[0], line_no))
-                continue
+                stderr.write("{}: {}: unexpected HTTP request\n".format(
+                    argv[0], line_no))
+
             # prep for status code and file size
             d = c[1].lstrip(' ')
             d = d.rstrip('\n')
             d = d.split(' ')
+
             # checking status code
             if not d[0].isdecimal():
-                #stderr.write("{}: {}: invalid status code\n".format(
-                #    argv[0], line_no))
-                continue
+                stderr.write("{}: {}: invalid status code\n".format(
+                    argv[0], line_no))
+            else:
+                code = int(d[0])
+                code_counts[code] += 1
+
             # checking file size
             if not d[1].isdecimal():
-                #stderr.write("{}: {}: invalid file size\n".format(
-                #    argv[0], line_no))
-                continue
-            # tabulate log line data into totals
-            code = int(d[0])
-            code_counts[code] += 1
-            total_file_size += int(d[1])
+                stderr.write("{}: {}: invalid file size\n".format(
+                    argv[0], line_no))
+            else:
+                total_file_size += int(d[1])
+
             if line_no % 10 == 0:
                 print_log_totals(total_file_size, code_counts)
         print_log_totals(total_file_size, code_counts)
 
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, SystemExit):
         print_log_totals(total_file_size, code_counts)
         raise
