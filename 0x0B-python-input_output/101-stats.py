@@ -45,8 +45,8 @@ if __name__ == '__main__':
             a = line.split('-', 1)
             # both ip addresses/URLs allowed, but some lines may be raw text
             if len(a) != 2:
-                stderr.write("{}: {}: invalid log line format\n".format(
-                    argv[0], line_no))
+                # stderr.write("{}: {}: invalid log line format\n".format(
+                #    argv[0], line_no))
                 continue
             # checking timestamp
             b = a[1].split(']')
@@ -55,15 +55,15 @@ if __name__ == '__main__':
             try:
                 datetime.datetime.strptime(timecode, '%Y-%m-%d %H:%M:%S.%f')
             except:
-                stderr.write("{}: {}: invalid timecode\n".format(
-                    argv[0], line_no))
+                #stderr.write("{}: {}: invalid timecode\n".format(
+                #    argv[0], line_no))
                 continue
             # checking URL
             c = b[1].split('"')
             c = c[1:]
             if c[0] != 'GET /projects/260 HTTP/1.1':
-                stderr.write("{}: {}: unexpected HTTP request\n".format(
-                    argv[0], line_no))
+                #stderr.write("{}: {}: unexpected HTTP request\n".format(
+                #    argv[0], line_no))
                 continue
             # prep for status code and file size
             d = c[1].lstrip(' ')
@@ -71,13 +71,13 @@ if __name__ == '__main__':
             d = d.split(' ')
             # checking status code
             if not d[0].isdecimal():
-                stderr.write("{}: {}: invalid status code\n".format(
-                    argv[0], line_no))
+                #stderr.write("{}: {}: invalid status code\n".format(
+                #    argv[0], line_no))
                 continue
             # checking file size
             if not d[1].isdecimal():
-                stderr.write("{}: {}: invalid file size\n".format(
-                    argv[0], line_no))
+                #stderr.write("{}: {}: invalid file size\n".format(
+                #    argv[0], line_no))
                 continue
             # tabulate log line data into totals
             code = int(d[0])
