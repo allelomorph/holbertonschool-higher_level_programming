@@ -1,21 +1,54 @@
 # holbertonschool-higher_level_programming
 
 ## Description
-The second semester in Holberton's core curriculum introduces us to Python. One directory per project, mandatory tasks are files `?-*.py` or `??-*.py`, advanced tasks `???-*.py`.
+High level / OOP component of the Holberton school core curriculum, with a focus on the basics of Python programming, plus an introduction to SQL and Javascript. 
+
+## General requirements
+
+### bash
+* Interpreter conditions:
+  * Ubuntu 14.04 LTS
+* First line of executable scripts wiil be `#!/bin/bash`
+
+### C
+* Compilation conditions:
+  * Ubuntu 14.04 LTS
+  * gcc 4.8.4
+  * flags `-Wall -Werror -Wextra -pedantic`
+* Compliance with linters:
+  * [betty-style](https://github.com/holbertonschool/Betty/blob/master/betty-style.pl)
+  * [betty-doc](https://github.com/holbertonschool/Betty/blob/master/betty-doc.pl)
+
+### Python
+* Interpreter conditions:
+  * Ubuntu 14.04 LTS
+  * python3 (version 3.4.3)
+* First line of executable scripts wiil be `#!/usr/bin/python3`
+* Compliance with linter:
+  * `pep8` (version 1.7.*) (now known as `pycodestyle`)
+
+### Javascript
+* Interpreter conditions:
+  * Ubuntu 14.04 LTS
+  * Node 10.x
+    * with `request` module
+* First line of executable scripts wiil be `#!/usr/bin/node`
+* Compliance with linter:
+  * `semistandard` (version 16.0.*)
 
 ---
 
-### [0x00. Python - Hello, World](./0x00-python-hello_world/)
+### [(231) 0x00. Python - Hello, World](./0x00-python-hello_world/)
+First introduction to scripting in Python 3, and basic use of strings.
 
+### [(233) 0x01. Python - if/else, loops, functions](./0x01-python-if_else_loops_functions/)
+Introduction to functions and basic flow control in Python.
 
-### [0x01. Python - if/else, loops, functions](./0x01-python-if_else_loops_functions/)
+### [(239) 0x02. Python - import & modules](./0x02-python-import_modules/)
+Introduction to how Python source files can reference one another through the use of `import`.
 
-
-### [0x02. Python - import & modules](./0x02-python-import_modules/)
-
-
-### [0x03. Python - Data Structures: Lists, Tuples](./0x03-python-data_structures/)
-
+### [(241) 0x03. Python - Data Structures: Lists, Tuples](./0x03-python-data_structures/)
+Introduction to the use of lists and tuples: indexing and methods, list comprehensions, sequences, and `del`.
 
 ### [0x04. Python - More Data Structures: Set, Dictionary](./0x04-python-more_data_structures/)
 
@@ -73,5 +106,5 @@ The second semester in Holberton's core curriculum introduces us to Python. One 
 
 ---
 
-## Author
+## Student
 * **Samuel Pomeroy** - [allelomorph](github.com/allelomorph)
