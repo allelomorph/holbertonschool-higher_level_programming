@@ -26,6 +26,11 @@ High level / OOP component of the Holberton school core curriculum, with a focus
 * First line of executable scripts wiil be `#!/usr/bin/python3`
 * Compliance with linter:
   * `pep8` (version 1.7.*) (now known as `pycodestyle`)
+* Docstrings are expected to follow the (Google style guide](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html):
+  * Per module (`python3 -c 'print(__import__("my_module").__doc__)'`)
+  * Per class (`python3 -c 'print(__import__("my_module").MyClass.__doc__)'`)
+  * Per function (both inside and outside a class) (`python3 -c 'print(__import__("my_module").my_function.__doc__)'` and `python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'`)
+
 
 ### Javascript
 * Interpreter conditions:
@@ -50,17 +55,17 @@ Introduction to how Python source files can reference one another through the us
 ### [(241) 0x03. Python - Data Structures: Lists, Tuples](./0x03-python-data_structures/)
 Introduction to the use of lists and tuples: indexing and methods, list comprehensions, sequences, and `del`.
 
-### [0x04. Python - More Data Structures: Set, Dictionary](./0x04-python-more_data_structures/)
+### [(243) 0x04. Python - More Data Structures: Set, Dictionary](./0x04-python-more_data_structures/)
+Introduction to the use of sets and dictionaries, how they differ from lists, iteration, key-value pairs, and lambda functions.
 
+### [(245) 0x05. Python - Exceptions](./0x05-python-exceptions/)
+Introduction to exceptions: raising, catching, and when best employed.
 
-### [0x05. Python - Exceptions](./0x05-python-exceptions/)
+### [(247) 0x06. Python - Classes and Objects](./0x06-python-classes/)
+Introducing Object-Oriented Programming, and how Python's implementation teaches about the concept more broadly.
 
-
-### [0x06. Python - Classes and Objects](./0x06-python-classes/)
-
-
-### [0x07. Python - Test-driven development](./0x07-python-test_driven_development/)
-
+### [(246) 0x07. Python - Test-driven development](./0x07-python-test_driven_development/)
+Introduction to how to create and use a battery of tests, implement tests inside docstrings, and finding edge cases.
 
 ### [0x08. Python - More Classes and Objects](./0x08-python-more_classes/)
 
