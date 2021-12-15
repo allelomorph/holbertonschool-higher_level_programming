@@ -13,16 +13,16 @@ class Square:
 
 
     Attributes:
-        size (int): length of one side of square
-        position (tuple) ((int), (int)): horizontal offset in spaces,
+        __size (int): length of one side of square
+        __position (tuple) ((int), (int)): horizontal offset in spaces,
         vertical offset in newlines
 
 
     """
 
     def __init__(self, size=0, position=(0, 0)):
-        self.size = size
-        self.position = position
+        self.__size = size
+        self.__position = position
 
     @property
     def size(self):
