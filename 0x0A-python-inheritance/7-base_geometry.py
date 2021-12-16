@@ -3,7 +3,7 @@
 
 
 class BaseGeometry:
-    """Intentionally empty and area() method.
+    """Intentionally empty area() method.
 
     """
     def area(self):

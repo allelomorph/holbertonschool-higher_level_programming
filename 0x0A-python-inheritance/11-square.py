@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ 0x0A. Python - Inheritance, task 8 """
+
+
 Rectangle = __import__('9-rectangle').Rectangle
 
 

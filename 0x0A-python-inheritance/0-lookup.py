@@ -13,3 +13,13 @@ def lookup(obj):
 
     """
     return dir(obj)
+
+# alternative that lists values for each attribute/method:
+#
+# from inspect import getmembers
+# getmembers(obj)
+#
+# output equivalent to:
+# [(member, eval('<obj name>' + '.' + member)) for member in dir(l)]
+#
+# see https://docs.python.org/3.4/library/inspect.html

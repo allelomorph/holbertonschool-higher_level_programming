@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ 0x0A. Python - Inheritance, task 8 """
+
+
 Rectangle = __import__('9-rectangle').Rectangle
 
 
@@ -20,7 +22,10 @@ class Square(Rectangle):
         self.__size = size
 
     def area(self):
-        """Returns square area as size * size, invoking Rectangle.area().
+        """Returns square area as size * size.
+
+        * Required by task instructions, but overloading Rectangle.area() is
+        redundant here, as it has the same result.
 
         Attributes:
             __size (int): length of side of square
@@ -30,3 +35,4 @@ class Square(Rectangle):
 
         """
         return self.__size ** 2
+'''
