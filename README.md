@@ -18,6 +18,7 @@ High level / OOP component of the Holberton school core curriculum, with a focus
 * Compliance with linters:
   * [betty-style](https://github.com/holbertonschool/Betty/blob/master/betty-style.pl)
   * [betty-doc](https://github.com/holbertonschool/Betty/blob/master/betty-doc.pl)
+* Test mains will typically not be in same directory as the task solutions, add `-I.` to `gcc` flags to allow test mains to include headers from main directory
 
 ### Python
 * Interpreter conditions:
@@ -26,11 +27,11 @@ High level / OOP component of the Holberton school core curriculum, with a focus
 * First line of executable scripts wiil be `#!/usr/bin/python3`
 * Compliance with linter:
   * `pep8` (version 1.7.*) (now known as `pycodestyle`)
-* Docstrings are expected to follow the (Google style guide](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html):
+* Docstrings are expected to follow the [Google style guide](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html):
   * Per module (`python3 -c 'print(__import__("my_module").__doc__)'`)
   * Per class (`python3 -c 'print(__import__("my_module").MyClass.__doc__)'`)
   * Per function (both inside and outside a class) (`python3 -c 'print(__import__("my_module").my_function.__doc__)'` and `python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'`)
-
+* Test scripts will typically not be in same directory as the task solutions, use `export PYTHONPATH='.'` before running test scripts from project directory to allow includes
 
 ### Javascript
 * Interpreter conditions:
@@ -67,17 +68,17 @@ Introducing Object-Oriented Programming, and how Python's implementation teaches
 ### [(246) 0x07. Python - Test-driven development](./0x07-python-test_driven_development/)
 Introduction to how to create and use a battery of tests, implement tests inside docstrings, and finding edge cases.
 
-### [0x08. Python - More Classes and Objects](./0x08-python-more_classes/)
+### [(250) 0x08. Python - More Classes and Objects](./0x08-python-more_classes/)
+Further exploration of Object-Oriented Programming concepts as represented in Python, such as attributes (class vs instance,) and methods (class vs static, getters vs setters, `__init__`, `__str__`, `__repr__`.)
 
+### [(252) 0x09. Python - Everything is object](./0x09-python-everything_is_object/)
+Investigating the mutability of objects in Python, comparing classes vs objects vs instances, and reference vs assignment vs aliases.
 
-### [0x09. Python - Everything is object](./0x09-python-everything_is_object/)
+### [(254) 0x0A. Python - Inheritance](./0x0A-python-inheritance/)
+How one class can be derived from another, how attributes and methods of a parent class are accessible by the child, plus the use of relevant built-in Python methods like `isinstance` and `issubclass`.
 
-
-### [0x0A. Python - Inheritance](./0x0A-python-inheritance/)
-
-
-### [0x0B. Python - Input/Output](./0x0B-python-input_output/)
-
+### [(260) 0x0B. Python - Input/Output](./0x0B-python-input_output/)
+Introduction to reading from and writing to files in Python, and serialization/deserialization using the JSON format.
 
 ### [0x0C. Python - Almost a circle](./0x0C-python-almost_a_circle/)
 
