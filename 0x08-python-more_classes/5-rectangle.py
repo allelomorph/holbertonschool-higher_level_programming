@@ -15,8 +15,9 @@ class Rectangle:
 
     """
     def __init__(self, width=0, height=0):
-        self.__width = width
-        self.__height = height
+        # attribute assigment here engages setters defined below
+        self.width = width
+        self.height = height
 
     @property
     def width(self):

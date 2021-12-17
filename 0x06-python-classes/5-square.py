@@ -15,7 +15,8 @@ class Square:
     """
 
     def __init__(self, size=0):
-        self.__size = size
+        # attribute assigment here engages setters defined below
+        self.size = size
 
     @property
     def size(self):
