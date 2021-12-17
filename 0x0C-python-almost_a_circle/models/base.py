@@ -32,6 +32,8 @@ class Base:
     __true_nb_objects = 0
     __assigned_ids = set()
 
+    # attribute assigment here engages setters defined below
+
     def __init__(self, id=None):
         if id is not None:
             # init with custom id, or reassignment from update()
