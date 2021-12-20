@@ -17,7 +17,7 @@ Bridging the gap between Python and SQL in two ways: using the module `MySQLdb` 
 * [`100-relationship_states_cities.sql`](./tests/100-relationship_states_cities.sql) [`101-relationship_states_cities_list.sql`](./tests/101-relationship_states_cities_list.sql) 
 
 ### More Info
-#### Install `MySQLdb` module version `2.0.x`
+#### Install `MySQLdb` module version `1.3.x`
 
 For installing `MySQLdb`, you need to have `MySQL` installed: see [repo README](../)
 ```bash
@@ -32,7 +32,7 @@ $ python3
 (1, 3, 10, 'final', 0)
 ```
 
-#### Install `SQLAlchemy` module version 1.4.x
+#### Install `SQLAlchemy` module version 1.2.x
 ```bash
 $ sudo pip3 install SQLAlchemy
 ...
@@ -41,7 +41,7 @@ $ python3
 >>> sqlalchemy.__version__
 '1.2.5'
 ```
-If seen, this warning message can be ingnored:
+If seen, this warning message can be ignored:
 ```bash
 /usr/local/lib/python3.4/dist-packages/sqlalchemy/engine/default.py:552: Warning: (1681, "'@@SESSION.GTID_EXECUTED' is deprecated and will be re
 moved in a future release.")
