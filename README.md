@@ -32,6 +32,29 @@ High level / OOP component of the Holberton school core curriculum, with a focus
   * Per class (`python3 -c 'print(__import__("my_module").MyClass.__doc__)'`)
   * Per function (both inside and outside a class) (`python3 -c 'print(__import__("my_module").my_function.__doc__)'` and `python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'`)
 * Test scripts will typically not be in same directory as the task solutions, use `export PYTHONPATH='.'` before running test scripts from project directory to allow includes
+* Unit tests will be required on some projects:
+  * using the [unittest module](https://docs.python.org/3.4/library/unittest.html#module-unittest)
+  * located in a `tests/` folder, with a file structure mimicing that of your project, but with a `test_` prefix added to all file/directory names
+  * tests should be capable of being run with `python3 -m unittest discover tests`, or individually per file with `python3 -m unittest <test file>`
+
+### SQL
+* `.sql` file comments prefixed with `-- `
+* Interpreter conditions:
+  * Ubuntu 14.04 LTS
+  * mysql Ver 14.14 Distrib 5.7.8-rc, for Linux (x86_64) using EditLine wrapper
+
+### Use of MySQL
+* `sudo apt install mysql-server` to install
+* Interactive mode with `sudo mysql`, non-interactive with:
+```bash
+$ service mysql start
+$ cat <script> | mysql -uroot -p
+```
+* Import a SQL dump:
+```bash
+$ echo "CREATE DATABASE <database>;" | mysql -uroot -p
+$ curl <dump_file_uri> -s | mysql -uroot -p <database>
+```
 
 ### Javascript
 * Interpreter conditions:
@@ -80,20 +103,20 @@ How one class can be derived from another, how attributes and methods of a paren
 ### [(260) 0x0B. Python - Input/Output](./0x0B-python-input_output/)
 Introduction to reading from and writing to files in Python, and serialization/deserialization using the JSON format.
 
-### [0x0C. Python - Almost a circle](./0x0C-python-almost_a_circle/)
+### [(331) 0x0C. Python - Almost a circle](./0x0C-python-almost_a_circle/)
+In preparation for the AirBnB clone project cycle, a review of all Python concepts covered so far: importing, exceptions, classes, private attributes, getter/setters, class/static methods, inheritance, unit testing, file I/O, and JSON serialization. In addition, `args` and `kwargs` are introduced.
 
+### [(272) 0x0D. SQL - Introduction](./0x0D-SQL_introduction/)
+Introduction to database storage via MySQL and creating SQL queries and functions.
 
-### [0x0D. SQL - Introduction](./0x0D-SQL_introduction/)
+### [(274) 0x0E. SQL - More queries](./0x0E-SQL_more_queries/)
+Addtional database and SQL concepts: managing user privileges, `PRIMARY KEY`/`FOREIGN KEY`, querying multiple tables, `JOIN`s and `UNION`s. 
 
+### [(283) 0x0F. Python - Object-relational mapping](./0x0F-python-object_relational_mapping/)
+Bridging the gap between Python and SQL in two ways: using the module `MySQLdb` to connect to a database and execute SQL queries, and using the `SQLAlchemy` module as an introduction to Object Relational Mapping.
 
-### [0x0E. SQL - More queries](./0x0E-SQL_more_queries/)
-
-
-### [0x0F. Python - Object-relational mapping](./0x0F-python-object_relational_mapping/)
-
-
-### [0x10. Python - Network #0](./0x10-python-network_0/)
-
+### [(299) 0x10. Python - Network #0](./0x10-python-network_0/)
+Introduction to the basics of HTTP requests and responses, URLs and their components, and using `curl` from the command line.
 
 ### [0x11. Python - Network #1](./0x11-python-network_1/)
 
