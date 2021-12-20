@@ -156,7 +156,7 @@ Write a function that inserts a line of text to a file, after each line containi
 
 File(s): [`100-append_after.py`](./100-append_after.py)
 
-### :white_check_mark: 14. Log parsing
+### :white_large_square: 14. Log parsing
 Write a script that reads stdin line by line and computes metrics:
 * Input format: `<IP Address> - [<date>] "GET /projects/260 HTTP/1.1" <status code> <file size>`
 * Each 10 lines and after a keyboard interruption (`CTRL + C`), prints those statistics since the beginning:
