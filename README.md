@@ -8,7 +8,7 @@ High level / OOP component of the Holberton school core curriculum, with a focus
 ### bash
 * Interpreter conditions:
   * Ubuntu 14.04 LTS
-* First line of executable scripts wiil be `#!/bin/bash`
+* First line of executable scripts will be `#!/bin/bash`
 
 ### C
 * Compilation conditions:
@@ -24,13 +24,15 @@ High level / OOP component of the Holberton school core curriculum, with a focus
 * Interpreter conditions:
   * Ubuntu 14.04 LTS
   * python3 (version 3.4.3)
-* First line of executable scripts wiil be `#!/usr/bin/python3`
+* First line of executable scripts will be `#!/usr/bin/python3`
 * Compliance with linter:
   * `pep8` (version 1.7.*) (now known as `pycodestyle`)
 * Docstrings are expected to follow the [Google style guide](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html):
   * Per module (`python3 -c 'print(__import__("my_module").__doc__)'`)
   * Per class (`python3 -c 'print(__import__("my_module").MyClass.__doc__)'`)
-  * Per function (both inside and outside a class) (`python3 -c 'print(__import__("my_module").my_function.__doc__)'` and `python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'`)
+  * Per function
+    * both inside a class (`python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'`)
+    * and outside a class (`python3 -c 'print(__import__("my_module").my_function.__doc__)'`)
 * Test scripts will typically not be in same directory as the task solutions, use `export PYTHONPATH='.'` before running test scripts from project directory to allow includes
 * Unit tests will be required on some projects:
   * using the [unittest module](https://docs.python.org/3.4/library/unittest.html#module-unittest)
