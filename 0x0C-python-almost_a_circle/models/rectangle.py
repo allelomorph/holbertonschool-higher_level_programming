@@ -21,9 +21,9 @@ class Rectangle(Base):
             `height`, `x`, `y`
 
     """
-    # attribute assigment here engages setters defined below
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
+        # attribute assigment here engages setters defined below
         self.width = width
         self.height = height
         self.x = x
