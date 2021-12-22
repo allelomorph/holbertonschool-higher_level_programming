@@ -66,6 +66,10 @@ $ curl <dump_file_uri> -s | mysql -uroot -p <database>
 * First line of executable scripts wiil be `#!/usr/bin/node`
 * Compliance with linter:
   * `semistandard` (version 16.0.*)
+  * standards references:
+    * [JavScript Standard Rules](https://standardjs.com/rules.html)
+    * [`semistandard` documentation](https://github.com/standard/semistandard)
+    * [AirBnB JavaScript standard](https://github.com/airbnb/javascript)
 
 ---
 
@@ -120,20 +124,20 @@ Bridging the gap between Python and SQL in two ways: using the module `MySQLdb` 
 ### [(299) 0x10. Python - Network #0](./0x10-python-network_0/)
 Introduction to the basics of HTTP requests and responses, URLs and their components, and using `curl` from the command line.
 
-### [0x11. Python - Network #1](./0x11-python-network_1/)
+### [(300) 0x11. Python - Network #1](./0x11-python-network_1/)
+Continued exploration of the Pythonic approach to HTTP requests and responses, this time using the `urllib` and `requests` packages.
 
+### [(303) 0x12. Javascript - Warm up](./0x12-javascript-warm_up/)
+A simple introduction to JavaScript, when used as a scripting language and for web front-end.
 
-### [0x12. Javascript - Warm up](./0x12-javascript-warm_up/)
+### [(304) 0x13. Javascript - Objects, Scopes and Closures](./0x13-javascript_objects_scopes_closures/)
+Introduction to Object-Oriented Programming in JavaScript: objects, classes, inheritance, scope, closure, `this`, and `undefined`.
 
+### [(333) 0x14. JavaScript - Web scraping](./0x14-javascript-web_scraping/)
+Pulling JSON data from the web using JavaScript's `request` module and Fetch API to make HTTP requests, plus file I/O with the `fs` module.
 
-### [0x13. Javascript - Objects, Scopes and Closures](./0x13-javascript_objects_scopes_closures/)
-
-
-### [0x14. JavaScript - Web scraping](./0x14-javascript-web_scraping/)
-
-
-### [0x15. Javascript - Web JQuery](./0x15-javascript-web_jquery/)
-
+### [(305) 0x15. Javascript - Web JQuery](./0x15-javascript-web_jquery/)
+Using JavaScript and JQuery to get and modify HTML, JQuery Ajax to handle HTTP requests, and JavaScript to listen and bind to user or DOM events.
 
 ---
 
