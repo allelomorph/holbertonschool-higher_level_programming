@@ -148,25 +148,25 @@ Using JavaScript and JQuery to get and modify HTML, JQuery Ajax to handle HTTP r
 
 ## AirBnB clone
 
-### [(263) 0x00. AirBnB clone - The console](https://github.com/allelomorph/AirBnB_clone/PROJECT_0x00.md)
+### [(263) 0x00. AirBnB clone - The console](https://github.com/allelomorph/AirBnB_clone/blob/master/PROJECT_0x00.md)
 Review of concepts like unit testing, JSON serialization/deserialization, and `*args`/`**kwargs` in Python, plus an introduction to UUIDs and the `cmd` module. Creating a command line interpreter to store data objects in local JSON files.
 
-### [(268) 0x01. AirBnB clone - Web static](https://github.com/allelomorph/AirBnB_clone/PROJECT_0x01.md)
+### [(268) 0x01. AirBnB clone - Web static](https://github.com/allelomorph/AirBnB_clone/blob/master/PROJECT_0x01.md)
 Introduction to HTML (elements, tags, and attributes) and CSS (classes, selectors, specificity, box properties.) Establishing style choices in a static web page which will serve as a framework for dynamic content in later versions.
 
-### [(289) 0x02. AirBnB clone - MySQL](https://github.com/allelomorph/AirBnB_clone_v2/PROJECT_0x02.md)
+### [(289) 0x02. AirBnB clone - MySQL](https://github.com/allelomorph/AirBnB_clone_v2/blob/master/PROJECT_0x02.md)
 Review of Object Relational Mapping. Building a MySQL database as a second storage engine accessible from our back end Python console.
 
-### [(288) 0x03. AirBnB clone - Deploy static](https://github.com/allelomorph/AirBnB_clone_v2/PROJECT_0x03.md)
-Revisiting Continuous Integration/Continuous Deployment and Nginx concepts from [`holberton-system_engineering-devops`](https://github.com/allelomorph/holberton-system_engineering-devops), plus an intrduction to the Python library Fabric. Deploying the static web content from [(268) 0x01. AirBnB clone - Web static](https://github.com/allelomorph/AirBnB_clone/PROJECT_0x01.md) to a simple architecture of two web servers and one load balancer.
+### [(288) 0x03. AirBnB clone - Deploy static](https://github.com/allelomorph/AirBnB_clone_v2/blob/master/PROJECT_0x03.md)
+Revisiting Continuous Integration/Continuous Deployment and Nginx concepts from [`holberton-system_engineering-devops`](https://github.com/allelomorph/holberton-system_engineering-devops), plus an intrduction to the Python library Fabric. Deploying the static web content from [(268) 0x01. AirBnB clone - Web static](https://github.com/allelomorph/AirBnB_clone/blob/master/PROJECT_0x01.md) to a simple architecture of two web servers and one load balancer.
 
-### [(290) 0x04. AirBnB clone - Web framework](https://github.com/allelomorph/AirBnB_clone_v2/PROJECT_0x04.md)
+### [(290) 0x04. AirBnB clone - Web framework](https://github.com/allelomorph/AirBnB_clone_v2/blob/master/PROJECT_0x04.md)
 Using the Python library Flask along with Jinja templates to create a web application to dynamically display the contents of our storage engines.
 
-### [(301) 0x05. AirBnB clone - RESTful API](https://github.com/allelomorph/AirBnB_clone_v3/PROJECT_0x05.md)
+### [(301) 0x05. AirBnB clone - RESTful API](https://github.com/allelomorph/AirBnB_clone_v3/blob/master/PROJECT_0x05.md)
 Using Flask in Python to create an API that can query the storage engine and serve JSON reponses.
 
-### [(309) 0x06. AirBnB clone - Web dynamic](https://github.com/allelomorph/AirBnB_clone_v4/PROJECT_0x06.md)
+### [(309) 0x06. AirBnB clone - Web dynamic](https://github.com/allelomorph/AirBnB_clone_v4/blob/master/PROJECT_0x06.md)
 Serving dynamically generated HTML content by querying the API built in the previous iteration using JQuery Ajax. Listening and binding to user or DOM events.
 
 ---
