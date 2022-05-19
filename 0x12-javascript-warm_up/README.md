@@ -159,7 +159,7 @@ File(s): [`13-add.js`](./13-add.js)
 ## Advanced Tasks
 
 ### :white_check_mark: 14. Const or not const
-Write a file that modifies the value of `myVar` to 333` when running [`100-main.js`](./tests/100-main.js)
+Write a file that modifies the value of `myVar` to `333` when running [`100-main.js`](./tests/100-main.js)
 
 Hint: scope
 
